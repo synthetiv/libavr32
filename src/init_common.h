@@ -7,5 +7,6 @@ extern void init_tc(void);
 extern void init_usb_host (void);
 extern void init_i2c_leader(void);
 extern void init_i2c_follower(uint8_t addr);
+extern void init_i2c_cooperator(uint8_t addr);
 
 #endif

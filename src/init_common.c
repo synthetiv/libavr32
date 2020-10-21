@@ -131,3 +131,14 @@ void init_i2c_follower(uint8_t addr) {
     print_dbg("follower start:\tFAIL\r\n");
   }*/
 }
+
+void init_i2c_cooperator(uint8_t addr) {
+  static const gpio_map_t TWI_GPIO_MAP =
+  {
+    {AVR32_TWI_SDA_0_0_PIN, AVR32_TWI_SDA_0_0_FUNCTION},
+    {AVR32_TWI_SCL_0_0_PIN, AVR32_TWI_SCL_0_0_FUNCTION}
+  };
+  gpio_enable_module(TWI_GPIO_MAP, sizeof(TWI_GPIO_MAP) / sizeof(TWI_GPIO_MAP[0]));
+
+  i2c_cooperator_init(addr);
+}
