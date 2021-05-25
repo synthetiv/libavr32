@@ -340,7 +340,7 @@ ISR(i2c_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL) {
       }
 
       // dummy read, no idea if this helps
-      twi->sr;
+      // twi->sr;
 
       return;
     }
@@ -400,7 +400,7 @@ ISR(i2c_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL) {
       }
 
       // dummy read, no idea if this helps
-      twi->sr;
+      // twi->sr;
 
       return;
     }
@@ -410,7 +410,7 @@ ISR(i2c_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL) {
       twi_follower_rx(twi->rhr);
 
       // dummy read, no idea if this helps
-      twi->sr;
+      // twi->sr;
       return;
     }
     else if ( (status & AVR32_TWI_SR_TXRDY_MASK) && (i2c_it_mask & AVR32_TWI_IER_TXRDY_MASK) ) {
