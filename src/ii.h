@@ -2,6 +2,12 @@
 // each device must use a unique address (0x01-0x7F)
 // 0 is RESERVED for global commands
 
+#define CROW                0x01 // alias of CROW_ADDR_0 for legacy usage
+#define CROW_ADDR_0         0x01
+#define CROW_ADDR_1         0x02
+#define CROW_ADDR_2         0x03
+#define CROW_ADDR_3         0x04
+
 #define WW                  0x10
 #define WW_KRIA             0x10 // ww kria uses ww address
 
@@ -62,15 +68,15 @@
 #define TELEXI_7            0x6F
 
 #define JF_ADDR             0x70
-#define WS_ADDR             0x71
-#define WS_ADDR_2           0x72
-#define WS_ADDR_3           0x73
-#define WS_ADDR_4           0x74
-#define WS_ADDR_5           0x75
-#define WS_ADDR_6           0x76
-#define WS_ADDR_7           0x77
-#define WS_ADDR_8           0x78
-#define WS_ADDR_9           0x79
+#define WS_T_ADDR           0x71
+#define WS_T_ADDR_2         0x72
+// 0x73 RESERVED
+// 0x74 RESERVED
+#define JF_ADDR_2           0x75
+#define WS_S_ADDR           0x76
+#define WS_S_ADDR_2         0x77
+#define WS_D_ADDR           0x78
+#define WS_D_ADDR_2         0x79
 
 // COMMANDS
 // new commands can overlap with existing ones
@@ -126,6 +132,7 @@
 #define ES_STOP         0x57
 #define ES_TRIPLE       0x58
 #define ES_MAGIC        0x59
+#define ES_CV           0x5A
 
 #define II_GET              128
 #define II_ANSIBLE_TR       1
@@ -212,6 +219,15 @@
 #define JF_GOD      10
 #define JF_TUNE     11
 #define JF_QT       12
+#define JF_PITCH    13
+#define JF_ADDRESS  14
+#define JF_SPEED    15
+#define JF_TSC      16
+#define JF_RAMP     17
+#define JF_CURVE    18
+#define JF_FM       19
+#define JF_TIME     20
+#define JF_INTONE   21
 
 #define WS_REC  1
 #define WS_PLAY 2
@@ -266,3 +282,21 @@
 #define WS_T_LOOP_NEXT     14
 #define WS_T_TIMESTAMP     15
 #define WS_T_SEEK          16
+#define WS_T_CLEARTAPE     18
+
+#define CROW_VOLTS  1
+#define CROW_SLEW   2
+#define CROW_CALL1  4
+#define CROW_CALL2  5
+#define CROW_CALL3  6
+#define CROW_CALL4  7
+#define CROW_RESET  8
+#define CROW_PULSE  9
+#define CROW_AR     10
+#define CROW_LFO    11
+#define CROW_IN     (II_GET + 3)
+#define CROW_OUT    (II_GET + 4)
+#define CROW_QUERY0 (II_GET + 5)
+#define CROW_QUERY1 (II_GET + 6)
+#define CROW_QUERY2 (II_GET + 7)
+#define CROW_QUERY3 (II_GET + 8)
